@@ -5,13 +5,13 @@ import { Component } from '@angular/core';
   templateUrl: './events-list.component.html'
 })
 export class EventsListComponent {
-  event = {
+  event1 = {
     id: 1,
     name: 'Angular Connect',
     date: '9/26/2019',
     time: '10:00 am',
     price: 599.99,
-    imageUrl: 'assets/images/angularconnect-shield.png',
+    imageUrl: '/assets/images/angularconnect-shield.png',
     location: {
       city: 'Tashkent',
       country: 'Uzbekistan'
