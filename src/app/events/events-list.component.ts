@@ -17,8 +17,4 @@ export class EventsListComponent {
       country: 'Uzbekistan'
     }
   };
-
-  handleEventClicked($event) {
-    console.log('received: ', $event);
-  }
 }
