@@ -19,4 +19,9 @@ export class EventThumbnailComponent {
   logFoo() {
     console.log('foo');
   }
+
+  getStatTimeClass() {
+    const isEarlyStart = this.event && this.event.time === '8:00 am';
+    return { green: isEarlyStart, bold: isEarlyStart };
+  }
 }
