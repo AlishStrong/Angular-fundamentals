@@ -22,7 +22,7 @@ export class EventThumbnailComponent {
 
   getStatTimeClass() {
     if (this.event && this.event.time === '8:00 am') {
-      return 'green bold';
+      return ['green', 'bold'];
     } else {
       return '';
     }
