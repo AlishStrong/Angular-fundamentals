@@ -5,6 +5,7 @@ import { Component, Input } from '@angular/core';
   templateUrl: './event-thumbnail.component.html',
   styles: [`
   .green { color: green !important; }
+  .bold { font-weight: bold; }
   .thumbnail { min-height: 210px; }
   .pad-left { margin-left: 10px; }
   .well div { color: #bbb; }
