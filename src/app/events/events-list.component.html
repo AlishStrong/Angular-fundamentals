@@ -5,7 +5,8 @@
     <div *ngFor="let event of events"
          class="col-md-5">
       <app-event-thumbnail [event]="event"
-                           #thumbnail></app-event-thumbnail>
+                           #thumbnail
+                           (click)="handleThumbnailClick(event.name)"></app-event-thumbnail>
     </div>
   </div>
 </div>
