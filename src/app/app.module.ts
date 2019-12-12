@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { ToastrService } from './common/toastr.service';
+import { Error404Component } from './errors/error404.component';
 import { CreateEventComponent } from './events/create-event.component';
 import { EventDetailsComponent } from './events/event-details/event-details.component';
 import { EventThumbnailComponent } from './events/event-thumbnail.component';
@@ -19,7 +20,8 @@ import { appRoutes } from './routes';
     EventThumbnailComponent,
     NavBarComponent,
     EventDetailsComponent,
-    CreateEventComponent
+    CreateEventComponent,
+    Error404Component
   ],
   imports: [
     BrowserModule,
