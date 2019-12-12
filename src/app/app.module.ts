@@ -6,6 +6,7 @@ import { ToastrService } from './common/toastr.service';
 import { Error404Component } from './errors/error404.component';
 import { CreateEventComponent } from './events/create-event.component';
 import { EventDetailsComponent } from './events/event-details/event-details.component';
+import { EventRouteActivator } from './events/event-details/event-route-activator.service';
 import { EventThumbnailComponent } from './events/event-thumbnail.component';
 import { EventsListComponent } from './events/events-list.component';
 import { EventService } from './events/shared/event.service';
@@ -29,7 +30,8 @@ import { appRoutes } from './routes';
   ],
   providers: [
     EventService,
-    ToastrService
+    ToastrService,
+    EventRouteActivator
   ],
   bootstrap: [AppComponent]
 })
