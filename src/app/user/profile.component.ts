@@ -7,7 +7,7 @@ import { AuthService } from './auth.service';
   templateUrl: './profile.component.html',
   styles: [`
   em { float: right; color: #E05C65; padding-left: 10px; }
-  .error input {background-color: #E3C3C5; }
+  .error input { background-color: #E3C3C5; }
   .error ::-webkit-input-placeholder { color: #999; }
   .error ::-moz-placeholder { color: #999; }
   .error :-moz-placeholder { color: #999; }
@@ -16,15 +16,17 @@ import { AuthService } from './auth.service';
 })
 export class ProfileComponent implements OnInit {
   profileForm: FormGroup;
+  private firstName: FormControl;
+  private lastName: FormControl;
 
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
-    const firstName = new FormControl(this.authService.currentUser.firstName, Validators.required);
-    const lastName = new FormControl(this.authService.currentUser.lastName, Validators.required);
+    this.firstName = new FormControl(this.authService.currentUser.firstName, Validators.required);
+    this.lastName = new FormControl(this.authService.currentUser.lastName, Validators.required);
     this.profileForm = new FormGroup({
-      firstName,
-      lastName
+      firstName: this.firstName,
+      lastName: this.lastName
     });
   }
 
@@ -37,5 +39,13 @@ export class ProfileComponent implements OnInit {
 
   cancel() {
     this.router.navigate(['events']);
+  }
+
+  validateLastName() {
+    return this.lastName.valid || this.lastName.untouched;
+  }
+
+  validateFirstName() {
+    return this.firstName.valid || this.firstName.untouched;
   }
 }
