@@ -4,13 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { CollapsibleWellComponent } from './common/collapsible-well.component';
-import { ToastrService } from './common/toastr.service';
+import { Toastr, TOASTR_TOKEN } from './common/toastr.service';
 import { Error404Component } from './errors/error404.component';
 import { CreateEventComponent, CreateSessionComponent, DurationPipe, EventDetailsComponent, EventListResolver, EventRouteActivator, EventService, EventsListComponent, EventThumbnailComponent, SessionListComponent } from './events/index';
 import { NavBarComponent } from './nav/navbar.component';
 import { appRoutes } from './routes';
 import { AuthService } from './user/auth.service';
 
+const toastr: Toastr = window['toastr'];
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,10 @@ import { AuthService } from './user/auth.service';
   ],
   providers: [
     EventService,
-    ToastrService,
+    {
+      provide: TOASTR_TOKEN,
+      useValue: toastr
+    },
     EventRouteActivator,
     {
       provide: 'canDeactivateCreateEvent',
