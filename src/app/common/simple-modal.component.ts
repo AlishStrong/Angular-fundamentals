@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-    selector: 'app-simple-modal',
-    template: `
-    <div class="modal fade" id="simple-modal" tabindex="-1">
+  selector: 'app-simple-modal',
+  template: `
+    <div class="modal fade" id="{{elementId}}" tabindex="-1">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -19,10 +19,11 @@ import { Component, Input } from '@angular/core';
     </div>
   </div>
     `,
-    styles: [`
+  styles: [`
         .modal-body { height: 250px; overflow-y: auto; }
     `]
 })
 export class SimpleModalComponent {
- @Input() title: string;
+  @Input() title: string;
+  @Input() elementId: string;
 }
