@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, Params } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { IEvent, ISession } from '../shared/event.model';
 import { EventService } from '../shared/event.service';
 
@@ -21,8 +21,15 @@ export class EventDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe((paramMap: Params) => {
-      this.event = this.eventService.getEvent(+paramMap.get('id'));
+      this.setEventAndDefaults(+paramMap.get('id'));
     });
+  }
+
+  setEventAndDefaults(eventId: number) {
+    this.event = this.eventService.getEvent(eventId);
+    this.addMode = false;
+    this.filterBy = 'all';
+    this.sortBy = 'name';
   }
 
   addSession() {
