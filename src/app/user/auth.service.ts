@@ -26,6 +26,13 @@ export class AuthService {
       }));
   }
 
+  logout(): Observable<any> {
+    this.currentUser = undefined;
+
+    const options = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
+    return this.http.post('/api/logout', {}, options);
+  }
+
   isAuthenticated(): boolean {
     return !!this.currentUser;
   }
