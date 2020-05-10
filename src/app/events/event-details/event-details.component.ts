@@ -26,10 +26,14 @@ export class EventDetailsComponent implements OnInit {
   }
 
   setEventAndDefaults(eventId: number) {
-    this.event = this.eventService.getEvent(eventId);
-    this.addMode = false;
-    this.filterBy = 'all';
-    this.sortBy = 'name';
+    this.eventService.getEvent(eventId).subscribe(
+      (event: IEvent) => {
+        this.event = event;
+        this.addMode = false;
+        this.filterBy = 'all';
+        this.sortBy = 'name';
+      }
+    );
   }
 
   addSession() {
