@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { CollapsibleWellComponent, JQ_TOKEN, ModalTriggerDirective, SimpleModalComponent, Toastr, TOASTR_TOKEN } from './common/index';
 import { Error404Component } from './errors/error404.component';
-import { CreateEventComponent, CreateSessionComponent, DurationPipe, EventDetailsComponent, EventListResolver, EventRouteActivator, EventService, EventsListComponent, EventThumbnailComponent, LocationValidator, SessionListComponent, UpvoteComponent, VoterService } from './events/index';
+import { CreateEventComponent, CreateSessionComponent, DurationPipe, EventDetailsComponent, EventListResolver, EventResolver, EventService, EventsListComponent, EventThumbnailComponent, LocationValidator, SessionListComponent, UpvoteComponent, VoterService } from './events/index';
 import { NavBarComponent } from './nav/navbar.component';
 import { appRoutes } from './routes';
 import { AuthService } from './user/auth.service';
@@ -49,7 +49,7 @@ const jQuery = window['$'];
       provide: JQ_TOKEN,
       useValue: jQuery
     },
-    EventRouteActivator,
+    EventResolver,
     {
       provide: 'canDeactivateCreateEvent',
       useValue: checkDirtyState
